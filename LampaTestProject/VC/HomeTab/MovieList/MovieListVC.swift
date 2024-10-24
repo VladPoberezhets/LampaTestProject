@@ -31,7 +31,7 @@ final class MovieListVC: UIViewController {
     
     private var viewModel: MoviesViewModel
     
-    var onMovieSelected: ((_ index: Int) -> Void)?
+    var onMovieSelected: (() -> Void)?
     
     init(viewModel: MoviesViewModel) {
         self.viewModel = viewModel
@@ -119,6 +119,7 @@ extension MovieListVC: UICollectionViewDelegateFlowLayout {
 
 extension MovieListVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.onMovieSelected?(indexPath.row)
+        self.viewModel.setSelectedMovie(index: indexPath.row)
+        self.onMovieSelected?()
     }
 }

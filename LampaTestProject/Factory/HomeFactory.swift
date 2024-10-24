@@ -10,7 +10,7 @@ final class HomeFactory {
         return MovieListVC(viewModel: viewModel)
     }
     
-    func makeMovieDetailsVC(viewModel: MoviesViewModel, index: Int) -> MoviewDetailsVC {
-        return MoviewDetailsVC(viewModel: viewModel, index: index)
+    func makeMovieDetailsVC(viewModel: MoviesViewModel) -> MoviewDetailsVC {
+        return MoviewDetailsVC(viewModel: viewModel)
     }
 }

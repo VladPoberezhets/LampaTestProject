@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 final class MoviesViewModel {
-    var movies: [MovieDTO?]?
+    private(set) var movies: [MovieDTO?]?
+    private(set) var selectedMovie: MovieDTO?
     
     func getMoviesList(completion: @escaping (NetworkError?) -> Void) {
         DispatchQueue.global(qos: .background).async {
@@ -47,5 +48,10 @@ final class MoviesViewModel {
                 }
             })
         }
+    }
+    
+    func setSelectedMovie(index: Int) {
+        guard self.movies?.indices.contains(index) ?? false else { return }
+        self.selectedMovie = self.movies?[index]
     }
 }

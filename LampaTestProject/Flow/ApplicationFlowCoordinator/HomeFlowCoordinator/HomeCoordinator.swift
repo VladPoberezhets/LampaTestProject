@@ -22,14 +22,14 @@ final class HomeCoordinator: BaseCoordinator {
     
     private func showMovieListVC() {
         let vc = factory.makeMovieListVC(viewModel: self.viewModel)
-        vc.onMovieSelected = { [weak self] index in
-            self?.showMovieDetailsVC(with: index)
+        vc.onMovieSelected = { [weak self] in
+            self?.showMovieDetailsVC()
         }
         self.router.setRootModule(vc)
     }
     
-    private func showMovieDetailsVC(with index: Int) {
-        let vc = factory.makeMovieDetailsVC(viewModel: self.viewModel, index: index)
+    private func showMovieDetailsVC() {
+        let vc = factory.makeMovieDetailsVC(viewModel: self.viewModel)
         self.router.push(vc, animated: true)
     }
 }
