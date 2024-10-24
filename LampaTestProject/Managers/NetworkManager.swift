@@ -128,7 +128,7 @@ extension NetworkManager {
             return .failure(NetworkError.noData)
         }
         
-        guard (200...500).contains(httpResponse.statusCode) else {
+        guard (200...300).contains(httpResponse.statusCode) else {
             print(NetworkError.serverError(statusCode: httpResponse.statusCode).errorDescription)
             return .failure(NetworkError.serverError(statusCode: httpResponse.statusCode))
         }
