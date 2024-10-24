@@ -57,11 +57,9 @@ final class MoviewDetailsVC: UIViewController {
     }()
     
     private var viewModel: MoviesViewModel
-    private var index: Int
     
-    init(viewModel: MoviesViewModel, index: Int) {
+    init(viewModel: MoviesViewModel) {
         self.viewModel = viewModel
-        self.index = index
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -78,7 +76,7 @@ final class MoviewDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let model = self.viewModel.movies?[self.index] {
+        if let model = self.viewModel.selectedMovie {
             self.viewModel.getMoviesImage(imagePath: model.backdropPath ?? "") { image, error in
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else {
