@@ -47,10 +47,6 @@ final class MovieListVC: UIViewController {
         self.view.backgroundColor = UIColor(named: "backgroundColor")
         self.setupNavigationTitle(image: UIImage(named: "navigationImage"), title: String(localized: "HEADER_TITLE"))
         setupCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         self.getMoviesList()
     }
     
